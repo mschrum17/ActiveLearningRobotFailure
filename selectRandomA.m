@@ -1,54 +1,7 @@
-    function [a,uncertainty]=selectRandomA(currentState,uncertainty,ABestGuess,NET,action,xIns,yIns)
-    
+    function [a,uncertainty]=selectRandomA(currentState,uncertainty,ABestGuess,NET,action,xIns,yIns)    
     num=200
-%         maxE=action(1)+5
-%         minE=action(1)-5
-%         
-%         maxT=action(2)+75
-%         minT=action(2)-10
-%         
-%         maxA=action(3)+30
-%         minA=action(3)-30
-%         
-%         maxR=action(4)+40
-%         minR=action(4)-40
-%         
-%         if maxE>10
-%             maxE=10
-%         end
-%         
-%         if minE<-25
-%             minE=-25
-%         end
-%         
-%         if maxT>9e5
-%             maxT=7e5
-%         end
-%         
-%         if minT<50
-%             minT=50
-%         end
-%         
-%         
-%         if maxA>30
-%             maxA=30
-%         end
-%         
-%         if minA<-30
-%             minA=-30
-%         end
-%         
-%         if maxR>50
-%             maxR=50
-%         end
-%         
-%         if minR<-50
-%             minR=-50
-%         end
-        
-        %%%%%%%%%%%%%%%%%%%%%%%%
-        maxE=action(1)+2
-        minE=action(1)-2
+        maxE=action(1)+1
+        minE=action(1)-1
         
         maxT=action(2)+50
         minT=action(2)-10
@@ -59,16 +12,16 @@
         maxR=action(4)+20
         minR=action(4)-20
         
-        if maxE>5
-            maxE=5
+        if maxE>10
+            maxE=10
         end
         
-        if minE<-5
-            minE=-5
+        if minE<-25
+            minE=-25
         end
         
-        if maxT>600
-            maxT=600
+        if maxT>1e5
+            maxT=7e5
         end
         
         if minT<50
@@ -92,8 +45,6 @@
             minR=-20
         end
         
-        %%%%%%%%%%%%%%%%%%%%%%%%
-        
         
         elevator=(maxE-minE).*rand(1,num)+minE;
         thrust=(maxT-minT).*rand(1,num)+minT;
@@ -103,7 +54,6 @@
         goodInputs=[];
         ys=zeros(11,num)
         yPos=zeros(11,num)
-
 
         counter=0
        goal=[60,10,-200]
